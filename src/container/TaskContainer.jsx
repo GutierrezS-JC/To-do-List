@@ -28,7 +28,7 @@ export const TaskContainer = () => {
 
   const getAllTasks = async () => {
     try {
-      const tasks = await axios.get(`${URL_BASE}/tasks`)
+      const tasks = await axios.get(`${URL_BASE}/tasks?userId=${user.id}&_sort=createdAt&_order=desc`)
       setTaskList(tasks.data)
       setLoading(false)
     }
