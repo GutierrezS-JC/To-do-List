@@ -1,8 +1,8 @@
 {
   "tasks": [
     {
-      "title": "Mimir",
-      "description": "jeje",
+      "title": "Mimir original",
+      "description": "Soy original",
       "isCompleted": false,
       "createdAt": "23/11/2023",
       "userId": 1,
@@ -15,6 +15,14 @@
       "createdAt": "23/11/2023",
       "userId": 1,
       "id": 2
+    },
+    {
+      "title": "Nueva tarea",
+      "description": "Database",
+      "isCompleted": false,
+      "createdAt": "23/11/2023",
+      "userId": 1,
+      "id": 3
     }
   ],
   "users": [

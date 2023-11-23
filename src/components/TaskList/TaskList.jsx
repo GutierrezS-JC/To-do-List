@@ -1,6 +1,6 @@
 import { TaskItem } from "../TaskItem/TaskItem";
 
-export const TaskList = ({ taskList, editTask, deleteTask, taskCompleted }) => {
+export const TaskList = ({ taskList, editTask, deleteTask, taskCompleted, setEditTaskId }) => {
   return (
     <div className="task-list-container">
       <h1 style={{ color: "white" }}>Lista de tareas</h1>
@@ -10,10 +10,10 @@ export const TaskList = ({ taskList, editTask, deleteTask, taskCompleted }) => {
         </button>
       </div>
       {taskList &&
-        <div className="cards-list">
+        <div className="cards-list" style={{marginBottom:'2.5em'}}>
           {taskList.length > 0 && taskList.map((task) => (
             <TaskItem key={`Task-${task.id}`} task={task} editTask={editTask}
-              deleteTask={deleteTask} taskCompleted={taskCompleted} />
+              deleteTask={deleteTask} taskCompleted={taskCompleted} setEditTaskId={setEditTaskId} />
           ))}
         </div>
       }

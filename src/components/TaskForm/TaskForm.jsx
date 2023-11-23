@@ -1,4 +1,4 @@
-export const TaskForm = ({ handleCloseForm, handleSubmitTask, handleTaskFormChange }) => {
+export const TaskForm = ({ handleCloseForm, handleSubmitTask, handleTaskFormChange,handleEdit, editTaskId }) => {
   return (
     <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1"
       aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -23,7 +23,8 @@ export const TaskForm = ({ handleCloseForm, handleSubmitTask, handleTaskFormChan
           </div>
           <div className="modal-footer">
             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={handleCloseForm}>Cerrar</button>
-            <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={handleSubmitTask}>Agregar tarea</button>
+            <button type="button" className="btn btn-primary" data-bs-dismiss="modal" 
+              onClick={editTaskId != null ?  handleEdit : handleSubmitTask}>Agregar tarea</button>
           </div>
         </div>
       </div>

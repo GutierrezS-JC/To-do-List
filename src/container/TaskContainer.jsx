@@ -12,16 +12,14 @@ export const TaskContainer = () => {
 
   const { user } = useContext(UserContext);
 
+  const [editTaskId, setEditTaskId] = useState(null)
   const [loading, setLoading] = useState(true)
   const [taskList, setTaskList] = useState([]);
   const [taskForm, setTaskForm] = useState({
+    id: '',
     title: '',
     description: '',
     isCompleted: false,
-  })
-
-  const [editTaskForm, setEditTaskForm] = useState({
-    idTask: '',
   })
 
   useEffect(() => {
@@ -66,6 +64,7 @@ export const TaskContainer = () => {
       description: '',
       isCompleted: false,
     })
+    setEditTaskId(null)
   }
 
   const handleTaskFormChange = (e) => {
@@ -73,8 +72,21 @@ export const TaskContainer = () => {
     setTaskForm({ ...taskForm, [e.target.name]: e.target.value })
   }
 
-  const editTask = (idTask) => {
-    getAllTasks()
+  const handleEdit = async (event) => {
+    event.preventDefault();
+    try {
+      const editTask = {
+        id: editTaskId,
+        title: taskForm.title,
+        description: taskForm.description,
+      }
+      await axios.patch(`${URL_BASE}/tasks/${editTaskId}`, editTask)
+      handleCloseForm()
+      getAllTasks()
+    }
+    catch (err) {
+      console.log(err)
+    }
   }
 
   const deleteTask = async (idTask) => {
@@ -102,8 +114,9 @@ export const TaskContainer = () => {
       {loading
         ? <LoadingSpinner loading={loading} />
         : <>
-          <TaskForm handleCloseForm={handleCloseForm} handleSubmitTask={handleSubmitTask} handleTaskFormChange={handleTaskFormChange} />
-          <TaskList taskList={taskList} editTask={editTask} deleteTask={deleteTask} taskCompleted={taskCompleted} />
+          <TaskForm handleCloseForm={handleCloseForm} handleSubmitTask={handleSubmitTask} 
+            handleTaskFormChange={handleTaskFormChange} handleEdit={handleEdit} editTaskId={editTaskId} />
+          <TaskList taskList={taskList} deleteTask={deleteTask} taskCompleted={taskCompleted} setEditTaskId={setEditTaskId} />
         </>
       }
     </>
