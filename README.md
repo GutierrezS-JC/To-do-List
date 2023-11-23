@@ -1,8 +1,33 @@
-# React + Vite
+# Lista de tareas 
+**Consigna:** 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Crear una aplicación web utilizando React que permita gestionar una lista de tareas. La aplicación deberá hacer uso de componentes funcionales, el hook useState para el manejo del estado, el hook useEffect para realizar efectos secundarios, y eventos para interactuar con el usuario.
 
-Currently, two official plugins are available:
+Basicamente una aplicacion **TO-DO-LIST**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Instrucciones
+1) Clonar el repositorio
+2) Instalar las dependencias
+    * **npm install**
+3) Levantar la aplicación frontend
+    * **npm run dev** 
+4) Levantar la base de datos
+    * **npm run server**
+6) Listo!
+   * Puede empezar a usar la aplicación ingresando en http://localhost:5173/
+
+# Usuarios
+Existen usuarios pre-cargados ya que no se contempla la creacion en esta implementacion. Con alguno de ellos podra *iniciar sesion*.
+
+```
+id: 1,
+username: "Manaos"
+password: manaos123
+
+id: 2,
+username: "Gatubi"
+password: "gatubi123"
+```
+
+☕
+  
