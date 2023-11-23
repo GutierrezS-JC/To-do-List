@@ -1,0 +1,24 @@
+{
+  "tasks": [
+    {
+      "title": "Comprar cafe",
+      "description": "A la salida de la facu, pagar con tarjeta :)",
+      "isCompleted": false,
+      "createdAt": "23/11/2023",
+      "userId": 1,
+      "id": 1
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "Manaos",
+      "password": "manaos123"
+    },
+    {
+      "id": 2,
+      "username": "Gatubi",
+      "password": "gatubi123"
+    }
+  ]
+}

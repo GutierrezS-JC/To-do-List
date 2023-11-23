@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # Pseudo DB
-db.json
+# db.json
