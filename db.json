@@ -1,0 +1,27 @@
+{
+  "tasks": [
+    {
+      "title": "Mimir",
+      "description": "jeje",
+      "isCompleted": false,
+      "createdAt": "23/11/2023",
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "title": "Test",
+      "description": "Holaa",
+      "isCompleted": false,
+      "createdAt": "23/11/2023",
+      "userId": 1,
+      "id": 2
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "Manaos",
+      "password": "manaos123"
+    }
+  ]
+}

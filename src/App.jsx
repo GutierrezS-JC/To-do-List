@@ -3,32 +3,40 @@ import { UserContext } from "./providers/UserContext"
 import { NavBar } from './components/NavBar/NavBar'
 import { TaskContainer } from './container/TaskContainer'
 import { LoginContainer } from "./container/LoginContainer";
-import { findUserByUsernameAndPassword } from "./Database/Database";
+import { findByUsernameAndPassword } from "./components/utils/utils";
+import axios from "axios";
 
 function App() {
+  const URL_BASE = "http://localhost:3000";
+
   const { user, loginUser } = useContext(UserContext);
   const [userLogin, setUserLogin] = useState({
     username: '',
     password: ''
   })
 
-  const handleSubmitUser = (event) => {
+  const handleSubmitUser = async (event) => {
     event.preventDefault();
-    const userLogged = findUserByUsernameAndPassword(userLogin.username, userLogin.password);
-    console.log(userLogged)
+    const usersFetch = await getAllUsers();
+    const userLogged = findByUsernameAndPassword(usersFetch, userLogin.username, userLogin.password);
     if (userLogged) {
       loginUser(userLogged)
     }
   }
 
-
   const handleInputUserLogin = (event) => {
     setUserLogin({ ...userLogin, [event.target.name]: event.target.value })
   }
 
-  // const handleLogin = (authAuser) => {
-  //   loginUser(authAuser);
-  // };
+  const getAllUsers = async () => {
+    try {
+      const users = await axios.get(`${URL_BASE}/users`)
+      return users.data
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }
 
   return (
     <>
